@@ -11,35 +11,35 @@ nohup.out
 fan/nohup.out
 
 # Distribution / packaging
-.Python
-bin/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
+fan/.Python
+fan/bin/
+fan/build/
+fan/develop-eggs/
+fan/dist/
+fan/downloads/
+fan/eggs/
+fan/.eggs/
 lib/
 lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+fan/parts/
+fan/sdist/
+fan/var/
+fan/wheels/
+fan/share/python-wheels/
+fan/*.egg-info/
+fan/.installed.cfg
+fan/*.egg
+fan/MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+fan/*.manifest
+fan/*.spec
 
 # Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+fan/pip-log.txt
+fan/pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
