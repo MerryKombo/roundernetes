@@ -8,6 +8,7 @@ __pycache__/
 
 # Nohup
 nohup.out
+fan/nohup.out
 
 # Distribution / packaging
 .Python
