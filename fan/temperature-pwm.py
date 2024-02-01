@@ -39,8 +39,6 @@ try:
         cpuTemp = float(cpuTempFile.read()) / 1000
         cpuTempFile.close()
 
-        print(f"Current CPU temperature: {cpuTemp}°C")  # Print the current CPU temperature
-
         # Calculate desired fan speed
         if abs(cpuTemp - cpuTempOld) > hyst:
             # Below first value, fan will run at min speed.
@@ -58,12 +56,12 @@ try:
                                          * (cpuTemp - tempSteps[i])
                                          + speedSteps[i], 1)
 
-            print(f"Desired fan speed: {fanSpeed}%")  # Print the desired fan speed
-
             if fanSpeed < FAN_MIN:
                 fanSpeed = FAN_MIN
 
             if fanSpeed != fanSpeedOld:
+                print(f"Current CPU temperature: {cpuTemp}°C")  # Print the current CPU temperature
+                print(f"Desired fan speed: {fanSpeed}%")  # Print the desired fan speed
                 fan.ChangeDutyCycle(fanSpeed)
                 fanSpeedOld = fanSpeed
                 print(f"Fan speed: {fanSpeed}%")  # Print the current fan speed
@@ -71,7 +69,6 @@ try:
 
         # Wait until next refresh
         time.sleep(WAIT_TIME)
-
 
 # If a keyboard interrupt occurs (ctrl + c), the GPIO is set to 0 and the program exits.
 except KeyboardInterrupt:
