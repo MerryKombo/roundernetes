@@ -1,0 +1,14 @@
+[Unit]
+Description=Temperature PWM Control
+After=network.target
+
+[Service]
+ExecStart=/home/poddingue/roundernetes/fan/bin/python3 /home/poddingue/roundernetes/fan/temperature-pwm.py
+WorkingDirectory=/home/poddingue/roundernetes/fan/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=poddingue
+
+[Install]
+WantedBy=multi-user.target

@@ -3,6 +3,8 @@ Code to manage the aRGB fans in Roundernetes
 
 ## Fan
 
+### Pre-requisites
+
 Code found here: https://www.waveshare.com/wiki/PI4-FAN-PWM
 ```bash
 cd fan
@@ -13,6 +15,34 @@ python3 -m venv .
 ./bin/pip3 install --upgrade lgpio
 nohup ./bin/python3 temperature-pwm.py 2>&1 &
 tail -f nohup.out
+```
+
+### Systemd
+
+Create a new service file in `/etc/systemd/system/` with a `.service` extension.
+For example, you could name it `temperature_pwm.service`.  
+The content could be as what you'll find in `fan/temperature_pwm.service`.  
+Now, you need to reload the systemd manager configuration with the following command:
+```bash
+sudo systemctl daemon-reload
+```
+Enable the service to start at boot time:
+```bash
+sudo systemctl enable temperature_pwm.service
+```
+Start the service:
+```bash
+sudo systemctl start temperature_pwm.service
+```
+Check the status of the service:
+```bash
+sudo systemctl status temperature_pwm.service
+```
+This should show that your service is active and running.
+
+Stop the service:
+```bash
+sudo systemctl stop temperature_pwm.service
 ```
 
 ## LED
